@@ -1,0 +1,23 @@
+[project]
+name = "web-pos"
+root = "." # Will be detected automatically
+
+[workspace]
+frontend = "apps/frontend"
+backend = "apps/backend"
+shared = "packages/shared"
+
+[commands.dev]
+# Run both frontend and backend concurrently
+frontend_cmd = "bun run dev"
+backend_cmd = "bun run dev"
+# Could add port settings, etc.
+
+[commands.test]
+coverage = true
+verbose = false
+
+[commands.context]
+# Files/directories to exclude from context collection
+exclude = ["node_modules", "dist", "build", ".turbo"]
+output_format = "markdown" # or "json"
