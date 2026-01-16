@@ -1,12 +1,15 @@
+title = "cli-helper"
+version = "1.0"
 [project]
 name = "web-pos"
 root = "." # Will be detected automatically
 
-[workspace]
+[project.workspace]
 frontend = "apps/frontend"
 backend = "apps/backend"
 shared = "packages/shared"
 
+[commands]
 [commands.dev]
 # Run both frontend and backend concurrently
 frontend_cmd = "bun run dev"
@@ -14,10 +17,18 @@ backend_cmd = "bun run dev"
 # Could add port settings, etc.
 
 [commands.test]
-coverage = true
-verbose = false
+coverage = "true"
+verbose = "false"
 
 [commands.context]
 # Files/directories to exclude from context collection
 exclude = ["node_modules", "dist", "build", ".turbo"]
 output_format = "markdown" # or "json"
+
+#TODO setup true data
+[database]
+name = "pos_db"
+type="postgres"
+server = "127.0.0.1"
+ports = [8001,8002,8003]
+connection-max = 5000

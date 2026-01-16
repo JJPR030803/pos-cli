@@ -1,17 +1,24 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"os"
 
 	"github.com/JJPR030803/pos-cli/internal/commands"
+	"github.com/JJPR030803/pos-cli/internal/config"
 	"github.com/JJPR030803/pos-cli/pkg/ui"
 )
 
 func main() {
+	cfg, err := config.Load("configs/pos.toml")
+	if err != nil {
+		log.Fatalf("Error loading config: %v", err)
+	}
+	fmt.Println(cfg.Database.Name, cfg.Title)
 	if err := commands.Execute(); err != nil {
 		os.Exit(1)
 	}
-
 }
 
 func testUI() {
