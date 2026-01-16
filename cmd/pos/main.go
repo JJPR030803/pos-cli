@@ -1,11 +1,17 @@
 package main
 
 import (
+	"os"
+
+	"github.com/JJPR030803/pos-cli/internal/commands"
 	"github.com/JJPR030803/pos-cli/pkg/ui"
 )
 
 func main() {
-	testUI()
+	if err := commands.Execute(); err != nil {
+		os.Exit(1)
+	}
+
 }
 
 func testUI() {
