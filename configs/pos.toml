@@ -1,5 +1,5 @@
 title = "cli-helper"
-version = "1.0"
+version = "1.0.0"
 [project]
 name = "web-pos"
 root = "." # Will be detected automatically
@@ -30,5 +30,5 @@ output_format = "markdown" # or "json"
 name = "pos_db"
 type="postgres"
 server = "127.0.0.1"
-ports = [8001,8002,8003]
+
 connection-max = 5000

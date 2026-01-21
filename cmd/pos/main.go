@@ -14,13 +14,18 @@ func main() {
 	cfg, err := config.Load("configs/pos.toml")
 	if err != nil {
 		log.Fatalf("Error loading config: %v", err)
+	} else {
+		fmt.Println("")
 	}
-	fmt.Println(cfg.Database.Name, cfg.Title)
+	fmt.Println("%s", cfg.Title)
 	if err := commands.Execute(); err != nil {
 		os.Exit(1)
 	}
 }
 
+func printSuccesfulCfg(cfg *config.Config) {
+
+}
 func testUI() {
 	// Create output handler (verbose = true for demo)
 	out := ui.NewOutput(true)
